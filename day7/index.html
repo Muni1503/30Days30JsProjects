@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7</title>
+</head>
+<body>
+
+    <script>
+    // ## Array Cardio Day 2
+
+    const people = [
+      { name: 'Muni', year: 2003 },
+      { name: 'ice', year: 2001},
+      { name: 'ammu', year: 2000 },
+      { name: 'chechi', year: 2002 }
+    ];
+
+    const comments = [
+      { text: 'Love you more!!', id: 523423 },
+      { text: 'Super maa!!', id: 823423 },
+      { text: 'You are the best', id: 2039842 },
+      { text: 'Tomato rice is my fav food ever', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    // Some and Every Checks
+    // Array.prototype.some() // is at least one person 19?
+    
+
+    const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+
+    console.log({isAdult});
+
+
+    // Array.prototype.every() // is everyone 19?
+
+    const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
+    console.log({allAdults});
+
+    // Array.prototype.find()
+    // Find is like filter, but instead returns just the one you are looking for
+    // find the comment with the ID of 823423
+
+
+    const comment = comments.find(comment => comment.id === 823423);
+
+    console.log(comment);
+
+    // Array.prototype.findIndex()
+    // Find the comment with this ID
+    // delete the comment with the ID of 823423
+
+    
+    const commentIndex = comments.findIndex(comment => comment.id === 823423);
+    console.log(commentIndex);
+
+    // comments.splice(index, 1);//used to delete particular value
+
+    const newComments = [
+      ...comments.slice(0, commentIndex),
+      ...comments.slice(commentIndex + 1)
+    ];
+
+    console.table(newComments);
+
+    //used spread operator to spread the array
+
+  </script>
+
+  <h3>Take A Look At Console!!!_:)</h3>
+    <style>
+        h3{
+            display:flex;
+            justify-content: center;
+        }
+    </style>
+</body>
+</html>
