@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14</title>
+</head>
+<body>
+
+    <p style="text-align: center; padding-top: 20%; font-size: xx-large;">Have you guessed the difference between Referring an array and copying an array. <br>Give a try to update an array without making the changes in the original copy. <br>Give it a try @ console!!</p>
+    
+
+    <script>
+        // Let's say we have an array
+        const sisters = ["ammu", "ice", "chechi", "kavi", "abi","priya"];
+
+        // suppose we need a copy means, we generally use 
+        const close = sisters;
+        console.log(close);
+
+        //but if we do some update on array close like
+        //close[2] = "panda";
+
+        // it changes the original array
+        // the solution is to make a copy instead of changing the original array
+
+        // here is the  two way to create a copy
+        const life = sisters.slice();
+        console.log(life);
+
+        const sis=[].concat(sisters);
+        const friend = ["sona"].concat(sisters);
+        console.log(friend);
+        console.log(sis);
+        // using this the original will not get changed
+
+        //or using Es6 spread operator
+        const sis1=[...sisters];
+        sis1[2]="Vanmathi";
+        console.log(sis1);
+        console.log(sisters);
+
+        const sis2=Array.from(sisters);
+        console.log(sis2)
+
+        sis2[2]="vanmathi";
+        console.log(sis2);
+        console.log(sisters);
+
+    //Then the same thing goes for objects
+    const person={
+        name:"Muni",
+        age:20
+    } ;
+    
+    //create a separate object
+    const captain=person;
+    captain.number=7;
+    console.log(captain);
+    console.log(person);
+
+  //how we can make copy instead
+  cap2=Object.assign({},person,{number:7});
+  console.log(cap2);
+  console.log(person);
+
+  //spread operator will not work with object
+
+  //Things to note-this is only 1 leveldeeep -both for arrays and objects
+  //lodash has a cloneMethod but yoou should think twice before using it
+
+  const mun={
+    name:"Muni",
+    age:20,
+    social:{
+        facebook:"MunRaj",
+        instagram:"MuniRao"
+    }
+  }
+  console.clear();
+  console.log(mun);
+
+  const dev=Object.assign({},mun);
+//   dev.social.instagram="MunRAoV";
+//   console.log(mun);
+//   console.log(dev);
+const dev2=JSON.parse(JSON.stringify(mun));
+dev.social.instagram="MunRAoV";
+  console.log(mun);
+  console.log(dev);
+
+
+
+    </script>
+    
+</body>
+</html>
